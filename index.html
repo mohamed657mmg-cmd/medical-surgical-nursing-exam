@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Medical-Surgical Nursing Exam</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    font-family:Arial,Tahoma,sans-serif;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:linear-gradient(135deg,#07152f,#123c70);
+    padding:18px;
+    color:#222;
+}
+
+.container{
+    width:100%;
+    max-width:850px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.30);
+}
+
+/* ================= البداية ================= */
+
+.start-page{
+    text-align:center;
+    margin-top:45px;
+}
+
+.start-page h1{
+    color:#123c70;
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#555;
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.pray{
+    background:#f2f6fb;
+    border-radius:15px;
+    padding:18px;
+    margin:20px 0;
+    font-size:22px;
+    font-weight:bold;
+    color:#123c70;
+}
+
+.heart{
+    color:#e63946;
+}
+
+input{
+    width:100%;
+    padding:16px;
+    border:2px solid #ddd;
+    border-radius:13px;
+    font-size:17px;
+    outline:none;
+    text-align:right;
+    margin:10px 0 18px;
+}
+
+input:focus{
+    border-color:#123c70;
+}
+
+.start-btn,
+.submit-btn{
+    width:100%;
+    padding:16px;
+    border:0;
+    border-radius:13px;
+    background:#123c70;
+    color:white;
+    font-size:19px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.start-btn:hover,
+.submit-btn:hover{
+    background:#0b2b54;
+}
+
+/* ================= الامتحان ================= */
+
+.exam-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.exam-header h2{
+    color:#123c70;
+    margin:5px 0 10px;
+    font-size:28px;
+}
+
+.student{
+    color:#555;
+    font-size:17px;
+}
+
+.badge{
+    display:inline-block;
+    background:#123c70;
+    color:white;
+    padding:8px 18px;
+    border-radius:20px;
+    margin-top:12px;
+}
+
+/* السؤال */
+
+.question{
+    background:#f7f9fc;
+    border:1px solid #e1e6ed;
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:20px;
+}
+
+.question-title{
+    font-size:18px;
+    font-weight:bold;
+    line-height:1.7;
+    margin-bottom:13px;
+    direction:ltr;
+    text-align:left;
+}
+
+.option{
+    display:block;
+    width:100%;
+    text-align:left;
+    direction:ltr;
+    background:white;
+    border:2px solid #ddd;
+    color:#222;
+    border-radius:12px;
+    padding:14px;
+    margin:8px 0;
+    font-size:16px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#123c70;
+    background:#f1f6ff;
+}
+
+.option.selected{
+    background:#123c70;
+    color:white;
+    border-color:#123c70;
+}
+
+.option:disabled{
+    cursor:not-allowed;
+}
+
+/* ================= النتيجة ================= */
+
+.result{
+    text-align:center;
+}
+
+.result h1{
+    color:#123c70;
+}
+
+.score{
+    font-size:48px;
+    font-weight:bold;
+    color:#123c70;
+    margin:15px 0;
+}
+
+.percentage{
+    font-size:28px;
+    font-weight:bold;
+    color:#198754;
+}
+
+.success{
+    background:#eaf8ef;
+    color:#198754;
+    border-radius:13px;
+    padding:15px;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+.review-title{
+    color:#123c70;
+    text-align:center;
+    margin-top:30px;
+}
+
+.review-item{
+    padding:16px;
+    border-radius:14px;
+    margin:12px 0;
+    text-align:left;
+    direction:ltr;
+}
+
+.review-item.correct{
+    background:#eaf8ef;
+    border-right:5px solid #198754;
+}
+
+.review-item.wrong{
+    background:#fff0f0;
+    border-right:5px solid #dc3545;
+}
+
+.review-question{
+    font-weight:bold;
+    line-height:1.7;
+    margin-bottom:10px;
+}
+
+.correct-message{
+    color:#198754;
+    font-weight:bold;
+}
+
+.wrong-answer{
+    color:#dc3545;
+    font-weight:bold;
+    margin:6px 0;
+}
+
+.correct-answer{
+    color:#198754;
+    font-weight:bold;
+    margin:6px 0;
+}
+
+/* ================= الفوتر ================= */
+
+.footer{
+    text-align:center;
+    margin-top:35px;
+    padding-top:22px;
+    border-top:1px solid #ddd;
+}
+
+.designer{
+    color:#123c70;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.author{
+    color:#555;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* اخفاء */
+
+.hidden{
+    display:none;
+}
+
+/* موبايل */
+
+@media(max-width:600px){
+
+    body{
+        padding:10px;
+    }
+
+    .card{
+        padding:17px;
+        border-radius:18px;
+    }
+
+    .start-page{
+        margin-top:20px;
+    }
+
+    .start-page h1{
+        font-size:30px;
+    }
+
+    .pray{
+        font-size:19px;
+    }
+
+    .exam-header h2{
+        font-size:23px;
+    }
+
+    .question-title{
+        font-size:17px;
+    }
+
+    .option{
+        font-size:15px;
+        padding:13px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- ================= صفحة البداية ================= -->
+
+<div class="card start-page" id="startPage">
+
+    <h1>اختبار</h1>
+
+    <div class="subtitle">
+        Medical-Surgical Nursing
+    </div>
+
+    <div class="pray">
+        قبل ما تبدأ تحل
+        <br>
+        صلّي على النبي ﷺ
+        <span class="heart">❤️</span>
+    </div>
+
+    <input
+        type="text"
+        id="studentName"
+        placeholder="اكتب اسمك بالكامل"
+        autocomplete="off"
+    >
+
+    <button
+        class="start-btn"
+        onclick="startExam()"
+    >
+        ابدأ الامتحان
+    </button>
+
+</div>
+
+
+<!-- ================= صفحة الامتحان ================= -->
+
+<div class="card hidden" id="examPage">
+
+    <div class="exam-header">
+
+        <h2>
+            Medical-Surgical Nursing
+        </h2>
+
+        <div class="student">
+            الطالب:
+            <strong id="displayName"></strong>
+        </div>
+
+        <div class="badge">
+            15 Questions
+        </div>
+
+    </div>
+
+    <div id="questionsContainer"></div>
+
+    <button
+        class="submit-btn"
+        onclick="submitExam()"
+    >
+        تسليم الامتحان
+    </button>
+
+</div>
+
+
+<!-- ================= صفحة النتيجة ================= -->
+
+<div class="card hidden" id="resultPage">
+
+    <div class="result">
+
+        <h1>
+            نتيجة الامتحان
+        </h1>
+
+        <p>
+            الطالب:
+            <strong id="resultStudent"></strong>
+        </p>
+
+        <div
+            class="score"
+            id="scoreText"
+        >
+            0 / 15
+        </div>
+
+        <div
+            class="percentage"
+            id="percentageText"
+        >
+            0%
+        </div>
+
+        <div class="success">
+            تم تسليم الامتحان بنجاح ❤️
+        </div>
+
+    </div>
+
+
+    <h2 class="review-title">
+        مراجعة الإجابات
+    </h2>
+
+    <div id="reviewContainer"></div>
+
+
+    <!-- ================= الحقوق ================= -->
+
+    <div class="footer">
+
+        <div class="designer">
+            Designed by Mohamed Mahmoud
+        </div>
+
+        <div class="author">
+            Exam Author: Omar Abdel-Tawab
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   أسئلة Medical-Surgical Nursing
+===================================================== */
+
+const questions = [
+
+{
+    question:"Nursing is mainly concerned with:",
+    options:[
+        "Selling medications",
+        "Providing continuous care",
+        "Performing surgeries only",
+        "Laboratory analysis"
+    ],
+    answer:"Providing continuous care"
+},
+
+{
+    question:"Which of the following is a role of nurses?",
+    options:[
+        "Ignoring patient complaints",
+        "Providing patient care",
+        "Avoiding teamwork",
+        "Only writing reports"
+    ],
+    answer:"Providing patient care"
+},
+
+{
+    question:"Complementary and alternative therapies (CAT) are:",
+    options:[
+        "Only surgical treatments",
+        "Part of conventional medicine",
+        "Not generally part of conventional medicine",
+        "Only used in emergencies"
+    ],
+    answer:"Not generally part of conventional medicine"
+},
+
+{
+    question:"Which of the following is an example of mind-body medicine?",
+    options:[
+        "Surgery",
+        "Meditation",
+        "Antibiotics",
+        "X-ray"
+    ],
+    answer:"Meditation"
+},
+
+{
+    question:"Palliative care focuses on:",
+    options:[
+        "Cure disease",
+        "Prevent disease only",
+        "Reduce symptoms",
+        "Surgery"
+    ],
+    answer:"Reduce symptoms"
+},
+
+{
+    question:"Which of the following is included in natural products?",
+    options:[
+        "Massage",
+        "Meditation",
+        "Herbal therapy",
+        "Surgery"
+    ],
+    answer:"Herbal therapy"
+},
+
+{
+    question:"Medical-surgical nursing includes care for:",
+    options:[
+        "Children only",
+        "Elderly only",
+        "Adolescents to elderly",
+        "Pregnant women only"
+    ],
+    answer:"Adolescents to elderly"
+},
+
+{
+    question:"One goal of palliative care is:",
+    options:[
+        "Speed up death",
+        "Delay death at all costs",
+        "Improve quality of life",
+        "Avoid patient interaction"
+    ],
+    answer:"Improve quality of life"
+},
+
+{
+    question:"Hospice care is given:",
+    options:[
+        "At early disease stages",
+        "During final stages of life",
+        "Only after recovery",
+        "Only in ICU"
+    ],
+    answer:"During final stages of life"
+},
+
+{
+    question:"Which sense is usually the last to disappear at end of life?",
+    options:[
+        "Vision",
+        "Hearing",
+        "Taste",
+        "Touch"
+    ],
+    answer:"Hearing"
+},
+
+{
+    question:"Which of the following is NOT a characteristic of palliative care?",
+    options:[
+        "Symptom relief",
+        "Holistic care",
+        "Focus on cure",
+        "Family support"
+    ],
+    answer:"Focus on cure"
+},
+
+{
+    question:"Brain death is defined as:",
+    options:[
+        "Temporary unconsciousness",
+        "Loss of memory only",
+        "Irreversible loss of all brain functions",
+        "Slow heart rate"
+    ],
+    answer:"Irreversible loss of all brain functions"
+},
+
+{
+    question:"Which system shows mottling and cold skin at end of life?",
+    options:[
+        "Respiratory",
+        "Cardiovascular",
+        "Integumentary",
+        "Nervous"
+    ],
+    answer:"Integumentary"
+},
+
+{
+    question:"Which factor influences professional nursing practice?",
+    options:[
+        "Ignoring technology",
+        "Population diversity",
+        "Avoiding education",
+        "Working alone"
+    ],
+    answer:"Population diversity"
+},
+
+{
+    question:"Which of the following is a nurse’s role in medical-surgical settings?",
+    options:[
+        "Performing surgery independently",
+        "Developing patient care plans",
+        "Ignoring patient education",
+        "Avoiding documentation"
+    ],
+    answer:"Developing patient care plans"
+}
+
+];
+
+
+/* =====================================================
+   متغيرات
+===================================================== */
+
+let studentName = "";
+
+let selectedAnswers =
+    new Array(questions.length).fill(null);
+
+
+/* =====================================================
+   خلط العناصر
+===================================================== */
+
+function shuffle(array){
+
+    let arr = [...array];
+
+    for(let i = arr.length - 1; i > 0; i--){
+
+        let j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [arr[i],arr[j]] =
+        [arr[j],arr[i]];
+
+    }
+
+    return arr;
+}
+
+
+/* =====================================================
+   بداية الامتحان
+===================================================== */
+
+function startExam(){
+
+    const input =
+        document.getElementById("studentName");
+
+    studentName =
+        input.value.trim();
+
+    if(studentName === ""){
+
+        alert("من فضلك اكتب اسمك بالكامل أولاً");
+
+        input.focus();
+
+        return;
+    }
+
+
+    document
+        .getElementById("startPage")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("examPage")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("displayName")
+        .textContent = studentName;
+
+
+    renderQuestions();
+
+}
+
+
+/* =====================================================
+   إنشاء الأسئلة
+===================================================== */
+
+function renderQuestions(){
+
+    const container =
+        document.getElementById(
+            "questionsContainer"
+        );
+
+    container.innerHTML = "";
+
+
+    selectedAnswers =
+        new Array(questions.length)
+        .fill(null);
+
+
+    questions.forEach((q,index)=>{
+
+        const questionDiv =
+            document.createElement("div");
+
+        questionDiv.className =
+            "question";
+
+
+        const title =
+            document.createElement("div");
+
+        title.className =
+            "question-title";
+
+        title.textContent =
+            `${index + 1}. ${q.question}`;
+
+
+        questionDiv.appendChild(title);
+
+
+        /*
+          هنا بنلخبط الاختيارات
+          لكل سؤال
+        */
+
+        const shuffledOptions =
+            shuffle(q.options);
+
+
+        shuffledOptions.forEach(option=>{
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "option";
+
+            button.textContent =
+                option;
+
+
+            button.onclick = function(){
+
+                /*
+                  الطالب لا يستطيع
+                  تغيير إجابته
+                */
+
+                if(
+                    selectedAnswers[index] !== null
+                ){
+
+                    return;
+                }
+
+
+                selectedAnswers[index] =
+                    option;
+
+
+                button.classList.add(
+                    "selected"
+                );
+
+
+                /*
+                  تعطيل باقي الاختيارات
+                */
+
+                const allOptions =
+                    questionDiv
+                    .querySelectorAll(".option");
+
+
+                allOptions.forEach(btn=>{
+
+                    btn.disabled = true;
+
+                });
+
+            };
+
+
+            questionDiv.appendChild(button);
+
+        });
+
+
+        container.appendChild(questionDiv);
+
+    });
+
+}
+
+
+/* =====================================================
+   تسليم الامتحان
+===================================================== */
+
+function submitExam(){
+
+    const unanswered =
+        selectedAnswers.filter(
+            answer => answer === null
+        ).length;
+
+
+    if(unanswered > 0){
+
+        alert(
+            `لم يتم الإجابة على ${unanswered} سؤال.`
+        );
+
+        return;
+    }
+
+
+    const confirmSubmit =
+        confirm(
+            "هل أنت متأكد من تسليم الامتحان؟\n\nبعد التسليم لن تستطيع تعديل إجاباتك."
+        );
+
+
+    if(!confirmSubmit){
+
+        return;
+
+    }
+
+
+    let score = 0;
+
+
+    questions.forEach((q,index)=>{
+
+        if(
+            selectedAnswers[index] ===
+            q.answer
+        ){
+
+            score++;
+
+        }
+
+    });
+
+
+    const percentage =
+        Math.round(
+            (score / questions.length) * 100
+        );
+
+
+    document
+        .getElementById("examPage")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("resultPage")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("resultStudent")
+        .textContent = studentName;
+
+
+    document
+        .getElementById("scoreText")
+        .textContent =
+        `${score} / ${questions.length}`;
+
+
+    document
+        .getElementById("percentageText")
+        .textContent =
+        `${percentage}%`;
+
+
+    showReview();
+
+}
+
+
+/* =====================================================
+   مراجعة الإجابات
+===================================================== */
+
+function showReview(){
+
+    const container =
+        document.getElementById(
+            "reviewContainer"
+        );
+
+    container.innerHTML = "";
+
+
+    questions.forEach((q,index)=>{
+
+        const studentAnswer =
+            selectedAnswers[index];
+
+
+        const correct =
+            studentAnswer === q.answer;
+
+
+        const item =
+            document.createElement("div");
+
+
+        item.className =
+            "review-item " +
+            (
+                correct
+                ? "correct"
+                : "wrong"
+            );
+
+
+        const question =
+            document.createElement("div");
+
+        question.className =
+            "review-question";
+
+        question.textContent =
+            `${index + 1}. ${q.question}`;
+
+
+        item.appendChild(question);
+
+
+        if(correct){
+
+            const message =
+                document.createElement("div");
+
+            message.className =
+                "correct-message";
+
+            message.textContent =
+                "✅ إجابة صحيحة";
+
+
+            item.appendChild(message);
+
+        }else{
+
+            const wrong =
+                document.createElement("div");
+
+            wrong.className =
+                "wrong-answer";
+
+            wrong.textContent =
+                `❌ إجابتك: ${studentAnswer}`;
+
+
+            const correctAnswer =
+                document.createElement("div");
+
+            correctAnswer.className =
+                "correct-answer";
+
+            correctAnswer.textContent =
+                `✅ الإجابة الصحيحة: ${q.answer}`;
+
+
+            item.appendChild(wrong);
+
+            item.appendChild(correctAnswer);
+
+        }
+
+
+        container.appendChild(item);
+
+    });
+
+}
+
+</script>
+
+</body>
+  </html>
