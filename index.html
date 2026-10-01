@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Medical-Surgical Nursing Exam</title>
+<title>Internal Medicine Exam</title>
 
 <style>
 
@@ -29,13 +29,13 @@ body{
 }
 
 .card{
-    background:white;
+    background:#fff;
     border-radius:22px;
     padding:25px;
     box-shadow:0 15px 40px rgba(0,0,0,.30);
 }
 
-/* ================= البداية ================= */
+/* البداية */
 
 .start-page{
     text-align:center;
@@ -50,7 +50,8 @@ body{
 
 .subtitle{
     color:#555;
-    font-size:18px;
+    font-size:20px;
+    font-weight:bold;
     margin-bottom:20px;
 }
 
@@ -101,7 +102,7 @@ input:focus{
     background:#0b2b54;
 }
 
-/* ================= الامتحان ================= */
+/* الامتحان */
 
 .exam-header{
     text-align:center;
@@ -178,7 +179,7 @@ input:focus{
     cursor:not-allowed;
 }
 
-/* ================= النتيجة ================= */
+/* النتيجة */
 
 .result{
     text-align:center;
@@ -209,6 +210,8 @@ input:focus{
     margin:20px 0;
     font-weight:bold;
 }
+
+/* المراجعة */
 
 .review-title{
     color:#123c70;
@@ -257,7 +260,7 @@ input:focus{
     margin:6px 0;
 }
 
-/* ================= الفوتر ================= */
+/* الحقوق */
 
 .footer{
     text-align:center;
@@ -279,13 +282,9 @@ input:focus{
     font-weight:bold;
 }
 
-/* اخفاء */
-
 .hidden{
     display:none;
 }
-
-/* موبايل */
 
 @media(max-width:600px){
 
@@ -322,7 +321,6 @@ input:focus{
         font-size:15px;
         padding:13px;
     }
-
 }
 
 </style>
@@ -333,7 +331,6 @@ input:focus{
 
 <div class="container">
 
-
 <!-- ================= صفحة البداية ================= -->
 
 <div class="card start-page" id="startPage">
@@ -341,7 +338,7 @@ input:focus{
     <h1>اختبار</h1>
 
     <div class="subtitle">
-        Medical-Surgical Nursing
+        Internal Medicine
     </div>
 
     <div class="pray">
@@ -375,7 +372,7 @@ input:focus{
     <div class="exam-header">
 
         <h2>
-            Medical-Surgical Nursing
+            Internal Medicine
         </h2>
 
         <div class="student">
@@ -384,7 +381,7 @@ input:focus{
         </div>
 
         <div class="badge">
-            15 Questions
+            12 Questions
         </div>
 
     </div>
@@ -420,7 +417,7 @@ input:focus{
             class="score"
             id="scoreText"
         >
-            0 / 15
+            0 / 12
         </div>
 
         <div
@@ -436,15 +433,11 @@ input:focus{
 
     </div>
 
-
     <h2 class="review-title">
         مراجعة الإجابات
     </h2>
 
     <div id="reviewContainer"></div>
-
-
-    <!-- ================= الحقوق ================= -->
 
     <div class="footer">
 
@@ -460,188 +453,154 @@ input:focus{
 
 </div>
 
-
 </div>
 
 
 <script>
 
 /* =====================================================
-   أسئلة Medical-Surgical Nursing
+   أسئلة طب باطنة
 ===================================================== */
 
 const questions = [
 
 {
-    question:"Nursing is mainly concerned with:",
+    question:"Which of the following is part of innate immunity?",
     options:[
-        "Selling medications",
-        "Providing continuous care",
-        "Performing surgeries only",
-        "Laboratory analysis"
+        "Antibodies",
+        "B lymphocytes",
+        "Skin and mucous membranes",
+        "Memory cells"
     ],
-    answer:"Providing continuous care"
+    answer:"Skin and mucous membranes"
 },
 
 {
-    question:"Which of the following is a role of nurses?",
+    question:"Active acquired immunity is characterized by:",
     options:[
-        "Ignoring patient complaints",
-        "Providing patient care",
-        "Avoiding teamwork",
-        "Only writing reports"
+        "Receiving ready-made antibodies",
+        "No memory cell formation",
+        "Formation of memory cells",
+        "Occurring only after blood transfusion"
     ],
-    answer:"Providing patient care"
+    answer:"Formation of memory cells"
 },
 
 {
-    question:"Complementary and alternative therapies (CAT) are:",
+    question:"Which of the following is an example of passive immunity?",
     options:[
-        "Only surgical treatments",
-        "Part of conventional medicine",
-        "Not generally part of conventional medicine",
-        "Only used in emergencies"
+        "Vaccination",
+        "Natural infection",
+        "Receiving immunoglobulins",
+        "Activation of T-cells"
     ],
-    answer:"Not generally part of conventional medicine"
+    answer:"Receiving immunoglobulins"
 },
 
 {
-    question:"Which of the following is an example of mind-body medicine?",
+    question:"The main cause of angina pectoris is:",
     options:[
-        "Surgery",
-        "Meditation",
-        "Antibiotics",
-        "X-ray"
+        "Increased heart rate",
+        "Narrowing of coronary arteries",
+        "Low hemoglobin",
+        "Lung infection"
     ],
-    answer:"Meditation"
+    answer:"Narrowing of coronary arteries"
 },
 
 {
-    question:"Palliative care focuses on:",
+    question:"Which of the following is NOT a risk factor for angina?",
     options:[
-        "Cure disease",
-        "Prevent disease only",
-        "Reduce symptoms",
-        "Surgery"
+        "Smoking",
+        "Physical activity",
+        "Obesity",
+        "High cholesterol"
     ],
-    answer:"Reduce symptoms"
+    answer:"Physical activity"
 },
 
 {
-    question:"Which of the following is included in natural products?",
+    question:"Atherosclerosis is defined as:",
     options:[
-        "Massage",
-        "Meditation",
-        "Herbal therapy",
-        "Surgery"
+        "Lack of oxygen in blood",
+        "Deposition of fats in arterial walls",
+        "Increase in white blood cells",
+        "Bacterial infection"
     ],
-    answer:"Herbal therapy"
+    answer:"Deposition of fats in arterial walls"
 },
 
 {
-    question:"Medical-surgical nursing includes care for:",
+    question:"A typical symptom of angina pectoris is:",
     options:[
-        "Children only",
-        "Elderly only",
-        "Adolescents to elderly",
-        "Pregnant women only"
+        "Abdominal pain only",
+        "Pain radiating to the arm or shoulder",
+        "Hearing loss",
+        "Skin rash"
     ],
-    answer:"Adolescents to elderly"
+    answer:"Pain radiating to the arm or shoulder"
 },
 
 {
-    question:"One goal of palliative care is:",
+    question:"Which investigation is commonly used to diagnose angina?",
     options:[
-        "Speed up death",
-        "Delay death at all costs",
-        "Improve quality of life",
-        "Avoid patient interaction"
+        "Urine analysis",
+        "ECG",
+        "Blood sugar test",
+        "X-ray only"
     ],
-    answer:"Improve quality of life"
+    answer:"ECG"
 },
 
 {
-    question:"Hospice care is given:",
+    question:"The key difference between angina and myocardial infarction (MI) is:",
     options:[
-        "At early disease stages",
-        "During final stages of life",
-        "Only after recovery",
-        "Only in ICU"
+        "Angina is more severe",
+        "MI causes no pain",
+        "MI involves complete blockage of a coronary artery",
+        "Angina causes permanent heart damage"
     ],
-    answer:"During final stages of life"
+    answer:"MI involves complete blockage of a coronary artery"
 },
 
 {
-    question:"Which sense is usually the last to disappear at end of life?",
+    question:"Which of the following is a complication of myocardial infarction?",
     options:[
-        "Vision",
-        "Hearing",
-        "Taste",
-        "Touch"
+        "Improved breathing",
+        "Heart failure",
+        "Increased energy",
+        "Muscle strengthening"
     ],
-    answer:"Hearing"
+    answer:"Heart failure"
 },
 
 {
-    question:"Which of the following is NOT a characteristic of palliative care?",
+    question:"Hypertension is diagnosed when blood pressure is:",
     options:[
-        "Symptom relief",
-        "Holistic care",
-        "Focus on cure",
-        "Family support"
+        "120/80 mmHg",
+        "130/85 mmHg",
+        "140/90 mmHg or higher",
+        "100/60 mmHg"
     ],
-    answer:"Focus on cure"
+    answer:"140/90 mmHg or higher"
 },
 
 {
-    question:"Brain death is defined as:",
+    question:"In CPR, the correct compression-to-breath ratio mentioned is:",
     options:[
-        "Temporary unconsciousness",
-        "Loss of memory only",
-        "Irreversible loss of all brain functions",
-        "Slow heart rate"
+        "1:1",
+        "2:1",
+        "4:1",
+        "10:2"
     ],
-    answer:"Irreversible loss of all brain functions"
-},
-
-{
-    question:"Which system shows mottling and cold skin at end of life?",
-    options:[
-        "Respiratory",
-        "Cardiovascular",
-        "Integumentary",
-        "Nervous"
-    ],
-    answer:"Integumentary"
-},
-
-{
-    question:"Which factor influences professional nursing practice?",
-    options:[
-        "Ignoring technology",
-        "Population diversity",
-        "Avoiding education",
-        "Working alone"
-    ],
-    answer:"Population diversity"
-},
-
-{
-    question:"Which of the following is a nurse’s role in medical-surgical settings?",
-    options:[
-        "Performing surgery independently",
-        "Developing patient care plans",
-        "Ignoring patient education",
-        "Avoiding documentation"
-    ],
-    answer:"Developing patient care plans"
+    answer:"4:1"
 }
 
 ];
 
 
 /* =====================================================
-   متغيرات
+   المتغيرات
 ===================================================== */
 
 let studentName = "";
@@ -651,7 +610,7 @@ let selectedAnswers =
 
 
 /* =====================================================
-   خلط العناصر
+   خلط الاختيارات
 ===================================================== */
 
 function shuffle(array){
@@ -665,8 +624,8 @@ function shuffle(array){
                 Math.random() * (i + 1)
             );
 
-        [arr[i],arr[j]] =
-        [arr[j],arr[i]];
+        [arr[i], arr[j]] =
+        [arr[j], arr[i]];
 
     }
 
@@ -675,7 +634,7 @@ function shuffle(array){
 
 
 /* =====================================================
-   بداية الامتحان
+   بدء الامتحان
 ===================================================== */
 
 function startExam(){
@@ -695,29 +654,24 @@ function startExam(){
         return;
     }
 
-
     document
         .getElementById("startPage")
         .classList.add("hidden");
-
 
     document
         .getElementById("examPage")
         .classList.remove("hidden");
 
-
     document
         .getElementById("displayName")
         .textContent = studentName;
 
-
     renderQuestions();
-
 }
 
 
 /* =====================================================
-   إنشاء الأسئلة
+   عرض الأسئلة
 ===================================================== */
 
 function renderQuestions(){
@@ -729,13 +683,30 @@ function renderQuestions(){
 
     container.innerHTML = "";
 
-
     selectedAnswers =
-        new Array(questions.length)
-        .fill(null);
+        new Array(questions.length).fill(null);
 
 
-    questions.forEach((q,index)=>{
+    /*
+       نخلط ترتيب الأسئلة نفسه
+       لكل طالب
+    */
+
+    const shuffledQuestions =
+        questions.map((question,index)=>({
+            ...question,
+            originalIndex:index
+        }));
+
+    shuffledQuestions.sort(
+        ()=>Math.random()-0.5
+    );
+
+
+    shuffledQuestions.forEach((q,displayIndex)=>{
+
+        const originalIndex =
+            q.originalIndex;
 
         const questionDiv =
             document.createElement("div");
@@ -751,15 +722,13 @@ function renderQuestions(){
             "question-title";
 
         title.textContent =
-            `${index + 1}. ${q.question}`;
-
+            `${displayIndex + 1}. ${q.question}`;
 
         questionDiv.appendChild(title);
 
 
         /*
-          هنا بنلخبط الاختيارات
-          لكل سؤال
+           خلط الاختيارات
         */
 
         const shuffledOptions =
@@ -781,19 +750,17 @@ function renderQuestions(){
             button.onclick = function(){
 
                 /*
-                  الطالب لا يستطيع
-                  تغيير إجابته
+                   لا يمكن تغيير الإجابة
                 */
 
                 if(
-                    selectedAnswers[index] !== null
+                    selectedAnswers[originalIndex] !== null
                 ){
-
                     return;
                 }
 
 
-                selectedAnswers[index] =
+                selectedAnswers[originalIndex] =
                     option;
 
 
@@ -802,19 +769,13 @@ function renderQuestions(){
                 );
 
 
-                /*
-                  تعطيل باقي الاختيارات
-                */
-
                 const allOptions =
                     questionDiv
                     .querySelectorAll(".option");
 
 
                 allOptions.forEach(btn=>{
-
                     btn.disabled = true;
-
                 });
 
             };
@@ -861,9 +822,7 @@ function submitExam(){
 
 
     if(!confirmSubmit){
-
         return;
-
     }
 
 
@@ -873,12 +832,9 @@ function submitExam(){
     questions.forEach((q,index)=>{
 
         if(
-            selectedAnswers[index] ===
-            q.answer
+            selectedAnswers[index] === q.answer
         ){
-
             score++;
-
         }
 
     });
@@ -942,7 +898,7 @@ function showReview(){
             selectedAnswers[index];
 
 
-        const correct =
+        const isCorrect =
             studentAnswer === q.answer;
 
 
@@ -953,7 +909,7 @@ function showReview(){
         item.className =
             "review-item " +
             (
-                correct
+                isCorrect
                 ? "correct"
                 : "wrong"
             );
@@ -972,7 +928,7 @@ function showReview(){
         item.appendChild(question);
 
 
-        if(correct){
+        if(isCorrect){
 
             const message =
                 document.createElement("div");
@@ -981,8 +937,7 @@ function showReview(){
                 "correct-message";
 
             message.textContent =
-                "✅ إجابة صحيحة";
-
+                "✅ Correct Answer";
 
             item.appendChild(message);
 
@@ -995,22 +950,22 @@ function showReview(){
                 "wrong-answer";
 
             wrong.textContent =
-                `❌ إجابتك: ${studentAnswer}`;
+                `❌ Your Answer: ${studentAnswer}`;
 
 
-            const correctAnswer =
+            const correct =
                 document.createElement("div");
 
-            correctAnswer.className =
+            correct.className =
                 "correct-answer";
 
-            correctAnswer.textContent =
-                `✅ الإجابة الصحيحة: ${q.answer}`;
+            correct.textContent =
+                `✅ Correct Answer: ${q.answer}`;
 
 
             item.appendChild(wrong);
 
-            item.appendChild(correctAnswer);
+            item.appendChild(correct);
 
         }
 
@@ -1024,4 +979,4 @@ function showReview(){
 </script>
 
 </body>
-  </html>
+    </html>
